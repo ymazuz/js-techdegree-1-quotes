@@ -48,9 +48,7 @@ quotes = [
     quote: "None of us can know what we are capable of until we are tested.",
     source: "Elizabeth Blackwell",
   },
-
-
-]
+];
 
 
 /***
