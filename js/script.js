@@ -64,11 +64,24 @@ function getRandomQuote() {
 ***/
 function printQuote() {
   const quote = getRandomQuote(); // pick a random quote
+  
+  //set the html for the actual quote and source, with unclosed <p> tag in case there's more metadata
   let quoteHTML = 
   `<p class="quote">${quote.quote}</p>
-  <p class="source">${quote.source}`;
+   <p class="source">${quote.source}`;
   
-  return quoteHTML;
+  if ( quote.citation ) {
+    quoteHTML += `<span class="citation">${quote.citation}</span>`;
+  }
+  
+  if ( quote.year || quote.year === 0) { // just in case there was a quote from year 0 and the year property was a number instead of a string!!
+    quoteHTML += `<span class="year">${quote.year}</span>`;
+  }
+  
+  quoteHTML += '</p>';
+  
+  document.getElementById('quote-box').innerHTML = quoteHTML;
+  // return quoteHTML;
   
 }
 
