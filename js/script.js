@@ -62,7 +62,15 @@ function getRandomQuote() {
 /***
  * `printQuote` function
 ***/
-
+function printQuote() {
+  const quote = getRandomQuote(); // pick a random quote
+  let quoteHTML = 
+  `<p class="quote">${quote.quote}</p>
+  <p class="source">${quote.source}`;
+  
+  return quoteHTML;
+  
+}
 
 /***
  * click event listener for the print quote button
