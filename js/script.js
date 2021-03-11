@@ -54,7 +54,10 @@ quotes = [
 /***
  * `getRandomQuote` function
 ***/
-
+function getRandomQuote() {
+  const index = Math.floor(Math.random() * quotes.length); // set index to a random integer in the range of the quotes array index
+  return quotes[index];
+}
 
 /***
  * `printQuote` function
