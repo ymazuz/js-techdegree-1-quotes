@@ -70,7 +70,7 @@ function printQuote() {
   `<p class="quote">${quote.quote}</p>
    <p class="source">${quote.source}`;
   
-  if ( quote.citation ) {
+  if ( quote.citation ) { // if there's a citation property, include it, styled via class attribute
     quoteHTML += `<span class="citation">${quote.citation}</span>`;
   }
   
@@ -81,6 +81,7 @@ function printQuote() {
   quoteHTML += '</p>';
   
   document.getElementById('quote-box').innerHTML = quoteHTML;
+  randomizeBackgroundColor(); // extra credit function. Change background color on each button click too.
   // return quoteHTML;
   
 }
@@ -91,3 +92,22 @@ function printQuote() {
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+
+// EXTRA CREDIT STUFF BELOW
+/***
+ * `randomizeBackgroundColor` function
+***/
+function randomizeBackgroundColor() {
+  
+  // made a li'l internal function so I don't have to copy/paste into the template literal
+  function randomColorValue() {
+    return Math.floor(Math.random() * 256);
+  }
+  
+  // pick 3 numbers from 0 to 255 and wrap them in 'rgb()'
+  const bgColorString = `rgb(${randomColorValue()}, ${randomColorValue()}, ${randomColorValue()})`;
+  
+  // make the new string into the body background color
+  document.querySelector('body').style.backgroundColor = bgColorString;
+}
